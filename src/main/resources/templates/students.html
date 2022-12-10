@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SFSB - Student Students</title>
+  <link rel="stylesheet" type="text/css" th:href = "@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div><h2>Summary of Working hours and Days</h2></div>
+  <div>
+    <table class="table table-bordered m-2">
+      <thead style="background-color: lightblue">
+      <tr>
+        <th>Day</th>
+        <th>Login</th>
+        <th>Break</th>
+        <th>Logout</th>
+        <th>Working Hours/day</th>
+        <th>Task</th>
+      </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="student: ${listStudents}">
+        <tr>
+          <td>[[${student.date}]]</td>
+          <td>[[${student.loginTime}]]</td>
+          <td>[[${student.breakPeriod}]]</td>
+          <td>[[${student.logoutTime}]]</td>
+          <td>[[${student.workHoursPerDay}]]</td>
+          <td>[[${student.Task}]]</td>
+        </tr>
+
+
+      </th:block>
+
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+</div>
+</body>
+</html>
