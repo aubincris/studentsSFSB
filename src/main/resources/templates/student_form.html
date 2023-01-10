@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="text-center"><h2>ADD NEW RECORD</h2></div>
 
-    <form th:action="@{students/save}" th:object="${newStudent}" method="post" style="max-width: 500px; margin: 0 auto;" >
+    <form th:action="@{/students/save}" th:object="${newStudent}" method="post" style="max-width: 500px; margin: 0 auto;" >
         <div class ="border border-secondary rounded p-3">
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Date</label>
@@ -47,17 +47,31 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-success"> Save</button>
+                <button type="submit" class="btn btn-success" onclick="saveForm()"> Save</button>
                 <button type="reset" class="btn btn-danger"> Reset</button>
-
-
+                <button type="button" class="btn btn-secondary" onclick="cancelForm()"> Cancel</button>
             </div>
-
 
         </div>
     </form>
 
 </div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location = "[[@{/students}]]"
+    }
+    function saveForm(){
+        var userPreference;
 
+        if (confirm("Do you want to save this record? you will not be able to undo this operation after confirmation?") == true) {
+            userPreference = "Record saved successfully!";
+        } else {
+            userPreference = "Canceled!";
+        }
+
+        document.getElementById("msg").innerHTML = userPreference;
+    }
+
+</script>
 </body>
 </html>
