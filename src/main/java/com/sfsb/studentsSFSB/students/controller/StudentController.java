@@ -5,6 +5,8 @@ import com.sfsb.studentsSFSB.students.service.StudentsServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -34,6 +36,15 @@ public class StudentController {
         model.addAttribute("listStudents", listStudents);
 
         return "students";
+    }
+
+    @PostMapping("/students/save")
+    public String saveStudent(Students newStudent){
+        //calculate the work hours per record
+        newStudent.setWorkHoursPerDay(newStudent.calculateWorkHoursPerDay());
+        service.save(newStudent);
+        return "redirect:/students";
+
     }
 
 
