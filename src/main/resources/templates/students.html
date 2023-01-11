@@ -8,6 +8,9 @@
 <body>
 <div class="container-fluid text-center">
   <div><h2>Summary of Working hours and Days</h2></div>
+  <div class="container-fluid text-center">
+    <a class="h2" th:href="@{/students/new}"> Click here to add another record</a>
+  </div>
   <div>
     <table class="table table-bordered m-2">
       <thead style="background-color: lightblue">
@@ -18,17 +21,19 @@
         <th>Logout</th>
         <th>Working Hours/day</th>
         <th>Task</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
-      <th:block th:each="student: ${listStudents}">
+      <th:block th:each="student:${listStudents}">
         <tr>
-          <td>[[${student.date}]]</td>
+          <td>[[${student.loginDate}]]</td>
           <td>[[${student.loginTime}]]</td>
           <td>[[${student.breakPeriod}]]</td>
           <td>[[${student.logoutTime}]]</td>
           <td>[[${student.workHoursPerDay}]]</td>
-          <td>[[${student.Task}]]</td>
+          <td>[[${student.task}]]</td>
+          <td><a th:href="@{'/students/delete/' + ${student.id}}" onclick="if(!(confirm('Are you sure you want to delete this record?'))) return false" style="color: red">Delete</a></td>
         </tr>
 
 
