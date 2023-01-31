@@ -21,9 +21,10 @@ public class Students {
 
     @Column(name = "LastName")
     private String lastName;
+
     @Column(name = "Date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
+    private LocalDate loginDate;
     @Column(name = "LoginTime")
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime loginTime;
@@ -41,12 +42,109 @@ public class Students {
 
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime workHoursPerWeek;
+
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime totalHoursForCurrentContract;
-    @DateTimeFormat(pattern = "HH:mm")
+
     //@DateTimeFormat(iso = DateTimeFormat.ISO.TIME) if above does not work
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime hoursLeftOnCurrentContract;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(LocalDate loginDate) {
+        this.loginDate = loginDate;
+    }
+
+    public LocalTime getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(LocalTime loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public LocalTime getBreakPeriod() {
+        return breakPeriod;
+    }
+
+    public void setBreakPeriod(LocalTime breakPeriod) {
+        this.breakPeriod = breakPeriod;
+    }
+
+    public LocalTime getLogoutTime() {
+        return logoutTime;
+    }
+
+    public void setLogoutTime(LocalTime logoutTime) {
+        this.logoutTime = logoutTime;
+    }
+
+    public LocalTime getWorkHoursPerDay() {
+        return workHoursPerDay;
+    }
+
+    public void setWorkHoursPerDay(LocalTime workHoursPerDay) {
+        this.workHoursPerDay = workHoursPerDay;
+    }
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public LocalTime getWorkHoursPerWeek() {
+        return workHoursPerWeek;
+    }
+
+    public void setWorkHoursPerWeek(LocalTime workHoursPerWeek) {
+        this.workHoursPerWeek = workHoursPerWeek;
+    }
+
+    public LocalTime getTotalHoursForCurrentContract() {
+        return totalHoursForCurrentContract;
+    }
+
+    public void setTotalHoursForCurrentContract(LocalTime totalHoursForCurrentContract) {
+        this.totalHoursForCurrentContract = totalHoursForCurrentContract;
+    }
+
+    public LocalTime getHoursLeftOnCurrentContract() {
+        return hoursLeftOnCurrentContract;
+    }
+
+    public void setHoursLeftOnCurrentContract(LocalTime hoursLeftOnCurrentContract) {
+        this.hoursLeftOnCurrentContract = hoursLeftOnCurrentContract;
+    }
 
     //Method to calculate work hours per day based on login,break and logout values
     public LocalTime calculateWorkHoursPerDay(){
